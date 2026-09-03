@@ -91,16 +91,14 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.header-nav,
-.language-nav {
+.header-nav {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.header-nav a,
-.language-nav a {
+.header-nav a {
   min-height: 42px;
   display: inline-flex;
   align-items: center;
@@ -114,8 +112,7 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.header-nav a:hover,
-.language-nav a:hover {
+.header-nav a:hover {
   border-color: var(--accent);
   color: var(--text);
 }
@@ -215,16 +212,6 @@ p {
 
 .card-links a {
   font-weight: 700;
-}
-
-.language-nav {
-  margin: 28px 0 36px;
-}
-
-.policy-language + .policy-language {
-  margin-top: 72px;
-  padding-top: 64px;
-  border-top: 1px solid var(--border);
 }
 
 .policy-section {
