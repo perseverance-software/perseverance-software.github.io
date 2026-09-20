@@ -1,11 +1,12 @@
 # Perseverance Software website
 
-Static GitHub Pages site for Perseverance Software product information, privacy policies, and support.
+Static GitHub Pages site for Perseverance Software product information, privacy policies, terms of service, and support.
 
 ## Published routes
 
 - `/` — organization landing page
-- `/form/privacy/` — bilingual FORM privacy policy
-- `/form/support/` — bilingual FORM support information
+- `/forcedrep/privacy/` (and `/form/privacy/`) — Forced Rep privacy policy
+- `/forcedrep/terms/` (and `/form/terms/`) — Forced Rep terms of service
+- `/forcedrep/support/` (and `/form/support/`) — Forced Rep support information
 
-GitHub Pages should publish from the `main` branch and repository root.
+GitHub Pages publishes from the `main` branch and repository root.
