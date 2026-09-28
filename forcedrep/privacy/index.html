@@ -30,7 +30,7 @@
       <p class="lede">
         This policy explains how Forced Rep handles information when you plan, record, and analyze your workouts.
       </p>
-      <p class="meta">Effective date and last updated: September 20, 2026</p>
+      <p class="meta">Effective date: September 20, 2026. Last updated: September 28, 2026</p>
 
       <article>
 
@@ -46,19 +46,20 @@
         <section class="policy-section">
           <h3>2. Information stored by Forced Rep</h3>
           <p>
-            Forced Rep is engineered with a strict local-first privacy architecture. All workout programs, exercise logs, completed reps, weights, rest timer states, progression curves, and personal training notes are stored locally on your device in secured sandbox storage. Forced Rep does not require account creation, and Perseverance Software does not operate servers that collect, store, or monitor your workout data.
+            Forced Rep stores workout programs, exercise logs, completed reps, weights, rest timer states, progression curves, and personal training notes in app storage on your device. JSON exports, Cloud Safety Mirror, and device backup services can create additional copies as described below. Forced Rep does not require account creation, and Perseverance Software does not operate servers that collect, store, or monitor your workout data.
           </p>
         </section>
 
         <section class="policy-section">
           <h3>3. Backup, JSON export, and Cloud Safety Mirror</h3>
           <p>
-            You can export and restore complete JSON backups at any time. In addition, Forced Rep Pro provides an optional <strong>Cloud Safety Mirror</strong> feature:
+            You can export and restore JSON backups. Manual exports contain readable JSON that you choose where to save or share. For users with Pro access, Cloud Safety Mirror is on by default and automatically writes a readable JSON backup to app-specific storage unless you turn it off in the App.
           </p>
           <ul>
-            <li><strong>Zero-Knowledge Encryption:</strong> Backups mirrored to cloud destinations are encrypted client-side using authenticated AES-256-GCM encryption with SHA-256 integrity verification.</li>
-            <li><strong>User-Controlled Storage:</strong> Backups are saved directly into your own personal cloud accounts (such as Apple iCloud Drive or Google Drive) or local directories. Perseverance Software never operates an intermediary storage server.</li>
-            <li><strong>Passphrase Privacy:</strong> Your optional encryption passphrase is never transmitted to Perseverance Software or any third party. If you forget your passphrase, encrypted backup files cannot be decrypted by anyone, including Perseverance Software.</li>
+            <li><strong>Android:</strong> If you select another folder using the system file picker, the App also writes backup copies there. The folder may be on your device or managed by a cloud storage provider. That provider controls whether and when the files are uploaded.</li>
+            <li><strong>iOS:</strong> When iCloud Drive is available, the App also writes a backup copy to its iCloud Drive container. Otherwise, the Cloud Safety Mirror copy remains on the device.</li>
+            <li><strong>Encryption and access:</strong> Forced Rep does not add its own encryption or password to JSON exports or Cloud Safety Mirror files. Anyone who can access a file may be able to read its contents. Device and storage provider protections depend on your settings.</li>
+            <li><strong>Other backups:</strong> Your device's backup service may separately copy app data, depending on your backup settings. Perseverance Software does not operate a backup storage server or receive these backup files.</li>
           </ul>
         </section>
 
@@ -88,21 +89,21 @@
         <section class="policy-section">
           <h3>7. Data sharing and advertising</h3>
           <p>
-            Perseverance Software does not sell, rent, monetize, or disclose your workout information. Forced Rep contains no third-party advertising SDKs and does not collect or track Apple IDFA (Identifier for Advertisers) or Google Advertising ID.
+            Perseverance Software does not sell, rent, or monetize your workout information. If you save a backup with a third-party storage provider, that provider may process the file under its own policies. Forced Rep contains no third-party advertising SDKs and does not collect or track Apple IDFA (Identifier for Advertisers) or Google Advertising ID.
           </p>
         </section>
 
         <section class="policy-section">
           <h3>8. Retention and deletion</h3>
           <p>
-            Your training data remains solely on your device until you choose to delete it. You can purge all logs at any time using the App's clear-data options, operating system app management, or by uninstalling the application. Exported files or Cloud Mirror backups must be deleted directly from whichever storage provider you selected.
+            You can delete workout data from the App using its clear-data options or your operating system's app management controls. Deleting app data or uninstalling the App may not delete JSON exports, Cloud Safety Mirror copies, or device backups. Remove those copies separately from their storage locations or backup services.
           </p>
         </section>
 
         <section class="policy-section">
           <h3>9. Security</h3>
           <p>
-            Forced Rep relies on operating system level sandboxing and hardware-backed device encryption to safeguard local databases. You are responsible for maintaining device security (passcodes, biometrics) and keeping backup files secure.
+            App storage is protected by your device and operating system access controls according to your settings. Forced Rep does not separately encrypt JSON exports or Cloud Safety Mirror files. Keep your device, backup locations, and storage accounts secure.
           </p>
         </section>
 
