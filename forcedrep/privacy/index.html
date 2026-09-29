@@ -66,13 +66,13 @@
         <section class="policy-section">
           <h3>4. Exercise issue reports</h3>
           <p>
-            If you choose Submit Report, the App sends the exercise name and ID, issue category, any comment you write, app version, language, platform, a random installation ID, and a report ID to a Cloudflare Worker operated for Perseverance Software. The App first saves a copy on your device and retries transmission when available. Do not include names, contact details, or medical information in your comment.
+            If you choose Submit Report, the App sends the exercise name and ID, issue category, any comment you write, app version, language, platform, and a random installation ID to our report service. The App saves a copy on your device first and retries if sending fails. Please do not include names, contact details, or medical information in your comment.
           </p>
           <p>
-            Cloudflare stores accepted reports in a D1 database. We use a server-keyed hash of the installation ID to limit submissions to one per hour and three per rolling 24 hours; the hash is cleared after 24 hours. The report details, including comments, are forwarded to a private Slack channel. If Slack delivery remains unavailable for 15 minutes, the full report, including your comment, is sent to a private Telegram bot chat as a fallback. Authorized people managing exercise content can read these messages. Cloudflare, Slack, and Telegram process information under their own privacy terms; network requests also expose connection metadata such as your IP address to Cloudflare.
+            We use reports to review and correct exercise information. The installation ID helps enforce the limit of one report per hour and three in a rolling 24 hours. External service providers host the report service and deliver reports to a private inbox for authorized reviewers. They receive the report content, including your comment, and may process connection information such as your IP address. We do not sell reports or use them for advertising.
           </p>
           <p>
-            We delete reports from D1 after 90 days once delivered to Slack or Telegram. If delivery to both remains unsuccessful, D1 retains the report until delivery or manual resolution. Slack and Telegram copies follow the retention settings and policies of those services and may remain longer. Deleting app data does not remove a report already submitted; contact us with your receipt ID to request removal where possible.
+            We normally remove delivered reports from our report database after 90 days. Reports awaiting delivery or manual resolution may remain longer. Copies held by our service providers may follow their own retention settings. Deleting the App does not remove a report already sent; contact us with the exercise name and approximate submission time if you want to request its deletion.
           </p>
         </section>
 
@@ -102,7 +102,7 @@
         <section class="policy-section">
           <h3>8. Data sharing and advertising</h3>
           <p>
-            Perseverance Software does not sell, rent, or monetize your workout information. If you save a backup with a third-party storage provider, that provider may process the file under its own policies. Submitted exercise reports are processed by Cloudflare and delivered to Slack, with Telegram as a fallback, as described in section 4. Forced Rep contains no third-party advertising SDKs and does not collect or track Apple IDFA (Identifier for Advertisers) or Google Advertising ID.
+            Perseverance Software does not sell, rent, or monetize your workout information. If you save a backup with a third-party storage provider, that provider may process the file under its own policies. Submitted exercise reports are handled by external service providers as described in section 4. Forced Rep contains no third-party advertising SDKs and does not collect or track Apple IDFA (Identifier for Advertisers) or Google Advertising ID.
           </p>
         </section>
 
