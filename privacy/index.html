@@ -83,6 +83,7 @@
               <li>Optional effort ratings and joint-stress ratings (see section 3).</li>
               <li>Your body log: bodyweight and body measurements you enter (see section 3).</li>
               <li>Settings such as weight unit, available plates, theme, and language.</li>
+              <li>Review-request preferences: IDs of workouts counted toward the request threshold, pending eligibility, and the last request-attempt time. These stay in app preferences and are excluded from JSON exports and Cloud Backup; device backups may separately copy them.</li>
             </ul>
             <p>
               Forced Rep does not require account creation. JSON exports, Cloud Backup, and device backup services can create additional copies as described in section 5. Workout logs, notes, ratings, and body log entries are not sent to Perseverance Software. Reports you choose to submit are handled as described in section 6.
@@ -176,6 +177,9 @@
             <h2>10. Purchases &amp; subscriptions</h2>
             <p>
               Optional purchases and subscriptions are processed securely through the Apple App Store or Google Play Store. Perseverance Software never collects or stores credit card or financial account numbers. The store platforms provide receipt validation and entitlement status to unlock subscribed features on your devices.
+            </p>
+            <p>
+              Forced Rep may ask the store to show its native review prompt after five nonempty workouts saved through actual use. Imported history does not count. The app sends no workout contents with this request, records only an attempt, and waits at least 90 days before another attempt. Apple or Google decides whether the prompt appears and handles any review you submit under its own policies. Forced Rep cannot tell whether you rated it.
             </p>
           </section>
 
