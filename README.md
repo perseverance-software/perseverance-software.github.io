@@ -4,7 +4,7 @@ Static GitHub Pages site for Forced Rep, served at <https://perseverancesoftware
 
 ## Routes
 
-- `/` — Forced Rep home page: what the app does, free features, Forced Rep Pro, and a privacy summary
+- `/` — Forced Rep home page: what the app does, free features, Forced Rep Premium, and a privacy summary
 - `/privacy/` — privacy policy
 - `/terms/` — terms of service
 - `/support/` — contact details and common questions
