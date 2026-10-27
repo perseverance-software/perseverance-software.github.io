@@ -1,25 +1,83 @@
 # Perseverance Software website
 
-Static GitHub Pages site for Forced Rep, served at <https://perseverancesoftware.app> (see `CNAME`). GitHub Pages publishes the `main` branch from the repository root, so pushing `main` publishes the site.
+Static GitHub Pages site for Forced Rep at <https://perseverancesoftware.app>.
+GitHub Pages publishes `main` from the repository root. **Pushing `main` publishes
+the site.** Local review and commits do not publish it.
 
 ## Routes
 
-- `/` — Forced Rep home page: what the app does, free features, Forced Rep Premium, and a privacy summary
+- `/` — app introduction, two selected native app details, free essentials, Premium and privacy summary
 - `/privacy/` — privacy policy
 - `/terms/` — terms of service
 - `/support/` — contact details and common questions
-- `/forcedrep/`, `/forcedrep/privacy/`, `/forcedrep/terms/`, `/forcedrep/support/` — redirects to the routes above (hash fragments are kept). Older links, including store listings, may still point here, so keep these pages.
+- `/forcedrep/`, `/forcedrep/privacy/`, `/forcedrep/terms/`, `/forcedrep/support/` — legacy redirects; preserve paths and hash fragments
 - `/404.html` — not-found page
 
-## Keeping it current
+## Presentation
 
-The home page and support answers restate parts of the policies: the Health data, storage, backup, advertising and subscription claims. When an app change alters a policy, update the policy page, its "Last updated" date, and any matching sentence on `/` and `/support/` in the same commit.
+Follow the public-website section of
+[`docs/design/form-design-system.md`](../docs/design/form-design-system.md).
+The site uses Obsidian colors, system typography, restrained mint actions and
+native app captures. No external fonts, analytics, frameworks or JavaScript are
+needed for the home, policy or support pages. The legacy redirects use a small
+script to preserve fragments, with a meta-refresh fallback.
 
-The look follows the Obsidian tokens, system font and contained surfaces in [`docs/design/form-design-system.md`](../docs/design/form-design-system.md). Do not add rebuilt app UI or invented data; use real screenshots or the approved artwork below.
+The home page deliberately shows **only two app details**, workout logging and
+the training calendar. Explain other features in text. Do not add a screenshot
+for every feature, an interactive recreation of the app, or standalone generated
+athlete/paywall artwork. Both captures are native SwiftUI renders from existing
+deterministic QA fixtures, labeled as iPhone sample data. They contain no personal
+workout information. The website never serves the full capture masters.
 
-## Images
+Policies and support remain available in the shared navigation. When product
+behavior changes, update the relevant policy, its date, and matching home/support
+claims together. A visual restyle alone does not change the policy date.
 
-All artwork is exported from assets that already ship in the apps.
+## Current image provenance
+
+Original native renders are preserved locally in
+`gym/assets/website/2026-10-27/masters/` (untracked source media), with their
+original test outputs retained at the source paths below. Crop only the relevant
+component and surrounding padding; do not repaint, reconstruct, annotate or
+change the app data. Coordinates are source pixels, `x y width height`.
+
+| Export | Native source relative to `gym/` | Test in `forcedrep-ios/FormAppTests/FormAppTests.swift` | Crop | Output |
+| --- | --- | --- | --- | --- |
+| `assets/images/workout-logging.webp` | `forcedrep-ios/build/session-review/prev-en-default-393.png` | `testPreviousTableRendersAtNarrowWidthsInEveryLanguageAndLightTheme` | `72 192 1035 1044` | 1000 × 1009, lossless RGB WebP, no alpha |
+| `assets/images/training-calendar.webp` | `forcedrep-ios/build/calendar-tiles-review/attachments/history-tiles-default-393.png` | `testTiledCalendarPaintsReferenceColorsAndRetainsSnapshots` | `60 0 1060 1356` | 960 × 1229, quality 92 RGB WebP, no alpha |
+
+Source masters are 1179 × 2100 (logging) and 1179 × 1920 (calendar).
+The logging fixture shows one completed 80 kg × 9 set and previous-session values;
+the calendar fixture shows August 2026 with seven completed, three unfinished and
+three missed days. These are real native components, not full-device screenshots.
+
+| File | SHA-256 |
+| --- | --- |
+| Logging source / local `masters/workout-logging.png` | `bebee920d800238c5ca5a8b62d79ccc7aba9735dd1de3b447613a76770d4dd0d` |
+| Calendar source / local `masters/training-calendar.png` | `c5c3ad089b29a0891e895e96da3316db5e58e1487cde056f61a88a696e1d98e7` |
+| `assets/images/workout-logging.webp` | `60b589a1d29c5c27c1848c9efc55e438c5d70d7e07d4a5ebfc4fcd16f3ec4bb3` |
+| `assets/images/training-calendar.webp` | `0313f32cacfc773eed7fa5540a64bc5b48aeb2c3145b45f0bde29434902dadba` |
+| `assets/images/og-image.png` | `84947a7cc6a636a262fad5183af7dbcddac8945521e29e4432a299fc6b3e2f23` |
+
+Export from the website directory with `cwebp`:
+
+```sh
+cwebp -quiet -lossless -crop 72 192 1035 1044 -resize 1000 0 ../assets/website/2026-10-27/masters/workout-logging.png -o assets/images/workout-logging.webp
+cwebp -quiet -q 92 -m 6 -sharp_yuv -crop 60 0 1060 1356 -resize 960 0 ../assets/website/2026-10-27/masters/training-calendar.png -o assets/images/training-calendar.webp
+```
+
+`assets/social-card.html` is the code source for the 1200 × 630 RGB PNG social
+preview (no alpha). Render it through the local server at exactly 1200 × 630 and
+capture the viewport as `assets/images/og-image.png`. It contains the existing
+Sculpted F and website typography, with no athlete or additional app screens.
+The system font may differ on other hosts; update the hash after an intentional
+re-export. Do not regenerate screenshots merely to match a different host font.
+
+## Retired artwork provenance
+
+The standalone artwork exports below were removed on 2026-10-27. App originals,
+local source media and this source mapping are preserved. Their former website
+exports remain recoverable in Git history. Launcher icons are still in use.
 
 | Site file | Source | Source SHA-256 |
 | --- | --- | --- |
@@ -35,10 +93,16 @@ WebP files were made with `sips -s format png -Z <width>` followed by `cwebp -q 
 
 ## Preview locally
 
-Pages use root-relative paths, so open them through a server rather than `file://`. From the `gym` directory:
+Use an HTTP server because page assets use root-relative paths. From `gym/`:
 
 ```sh
-python3 -m http.server 8765 --directory perseverance-software.github.io
+python3 -m http.server 8765 --bind 127.0.0.1 --directory perseverance-software.github.io
 ```
 
-Then open <http://localhost:8765>. The local server does not serve `404.html` for missing paths; GitHub Pages does.
+Open <http://127.0.0.1:8765/>. Check the home page and policy/support routes at
+320 px, a typical phone width, tablet and desktop widths; test the support FAQ,
+keyboard focus, anchor links and the legacy redirects with fragments. The Python
+server does not serve `404.html` for missing paths; GitHub Pages does.
+
+Visual-review captures are local-only under
+`gym/assets/website/2026-10-27/review/`.
